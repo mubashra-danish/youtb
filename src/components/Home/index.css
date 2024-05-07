@@ -1,0 +1,123 @@
+/* NavBar Styles */
+.navbar {
+  background-color: #e0dddd; /* Example background color */
+  color: #fff; /* Example text color */
+  padding: 15px; /* Example padding */
+}
+.boxxx {
+  margin: 60px;
+}
+/* SideBar Styles */
+.sidebar {
+  background-color: white; /* Example background color */
+  color: #333; /* Example text color */
+  width: 230px; /* Example width */
+  padding: 15px; /* Example padding */
+  float: left; /* Float sidebar to the left */
+}
+.logobox {
+  display: flex;
+  flex-direction: row;
+}
+.boxforcount {
+  display: flex;
+  flex-direction: row;
+  font-family: Roboto;
+}
+/* Main Content Styles */
+/* Main Content Styles */
+.main-content {
+  margin-left: 240px;
+  display: flex; /* Use flexbox */
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
+  padding: 20px;
+  justify-content: flex-start; /* Align items to the start of the main axis */
+  align-items: flex-start; /* Align items to the start of the cross axis */
+}
+.main-box {
+  display: flex; /* Use flexbox */
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
+  padding: 5px;
+  justify-content: flex-start; /* Align items to the start of the main axis */
+  align-items: flex-start; /* Align items to the start of the cross axis */
+}
+/* Videos Styles */
+.video {
+  margin-right: 10px; /* Example margin between videos */
+  margin-bottom: 10px; /* Example margin */
+  flex: 0 0 calc(25% - 20px); /* Set width of each video to 25% minus margin */
+}
+
+.video:last-child {
+  margin-right: 0; /* Remove margin from the last video */
+}
+
+.homeimg {
+  width: 240px;
+  /* Example width */
+  height: 110px; /* Maintain aspect ratio */
+}
+
+/* Search Styles */
+.search-container {
+  margin-bottom: 20px; /* Example margin */
+}
+
+.search-container input[type='text'] {
+  padding: 10px;
+  margin: 10px; /* Example padding */
+}
+
+.search-container button {
+  padding: 10px; /* Example padding */
+  background-color: #4caf50; /* Example background color */
+  color: white; /* Example text color */
+  border: none; /* Example border */
+  cursor: pointer; /* Example cursor */
+}
+
+.search-container button:hover {
+  background-color: #45a049; /* Example hover background color */
+}
+
+/* Loader Styles */
+.loader-container {
+  text-align: center; /* Center loader */
+  margin-top: 20px; /* Example margin */
+}
+
+/* Failure Message Styles */
+.failure-message {
+  color: #f00; /* Example text color */
+}
+
+.failure-message button {
+  margin-top: 10px; /* Example margin */
+}
+
+.failure-message button:hover {
+  background-color: #f00; /* Example hover background color */
+  color: #fff; /* Example hover text color */
+}
+
+.video a {
+  text-decoration: none;
+}
+.homecount {
+  color: grey;
+  margin-top: 1px;
+}
+.logoboximg {
+  width: 25px;
+  height: 27px;
+}
+.hometitle {
+  color: black;
+  margin-top: 2px;
+  font-size: 14px;
+}
+.hometitlee {
+  margin-top: 1px;
+  color: black;
+  font-size: roboto;
+}

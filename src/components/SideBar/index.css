@@ -1,0 +1,35 @@
+.sidebar {
+  position: fixed; /* Fix the sidebar position */
+  top: 0; /* Position the sidebar at the top of the viewport */
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh; /* Set sidebar height to full viewport height */
+  background-color: hwb(0 94% 6%); /* Background color for the sidebar */
+  padding: 20px; /* Add some padding */
+}
+
+.sidebar h1 {
+  margin: 10px 0;
+  font-size: 20px; /* Add margin between each sidebar item */
+}
+
+.sidebar p {
+  margin-top: auto;
+  color: black; /* Push the paragraph to the bottom */
+}
+
+.sidebar a {
+  text-decoration: none; /* Remove underline from links */
+}
+
+.sidebar .contact-icons {
+  display: flex;
+}
+
+.sidebar .contact-icons svg {
+  width: 20px; /* Adjust the size of the icons */
+  height: 20px;
+  margin-right: 10px; /* Add some spacing between the icons */
+}

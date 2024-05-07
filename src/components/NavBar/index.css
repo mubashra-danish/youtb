@@ -1,0 +1,19 @@
+.image {
+  height: 30px;
+  margin: 10px;
+}
+.img-logo {
+  height: 25px;
+  margin-right: 10px;
+}
+.cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}

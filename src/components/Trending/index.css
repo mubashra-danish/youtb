@@ -1,0 +1,20 @@
+.trending-videos-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap; /* Allow items to wrap to the next row */
+  justify-content: space-between; /* Distribute items evenly along the main axis */
+  padding: 20px;
+
+  /* Add padding to the container */
+}
+.trending-nav {
+  display: flex; /* Use flexbox */
+  align-items: center; /* Center items vertically */
+  margin-left: 20px;
+  justify-content: flex-start;
+  background-color: rgb(212, 209, 209);
+}
+
+.trending-nav h1 {
+  margin-left: 10px; /* Add margin to separate the icon and heading */
+}

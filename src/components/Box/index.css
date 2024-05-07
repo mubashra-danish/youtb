@@ -1,0 +1,13 @@
+.back {
+  background-image: url('https://assets.ccbp.in/frontend/react-js/nxt-watch-banner-bg.png');
+  height: 30vh;
+  background-size: cover;
+  width: 100vh;
+  margin: 10px;
+}
+.imagu {
+  height: 30px;
+}
+.para {
+  font-size: 12px;
+}
