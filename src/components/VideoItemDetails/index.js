@@ -3,6 +3,13 @@ import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
 import ReactPlayer from 'react-player'
 import CartContext from '../../context/CartContext'
+import NavBar from '../NavBar'
+import SideBar from '../SideBar'
+import {AiOutlineLike} from 'react-icons/ai'
+import {AiOutlineDislike} from 'react-icons/ai'
+import {HiOutlineSave} from 'react-icons/hi'
+import {formatDistanceToNow} from 'date-fns'
+
 import './index.css'
 
 const apiStatusConstants = {
@@ -30,10 +37,16 @@ class VideoItemDetails extends Component {
     id: data.id,
     title: data.title,
     videoUrl: data.video_url,
-    thumbnailUrl: data.thumbnailUrl,
+    thumbnailUrl: data.thumbnail_url,
+    channel: {
+      name: data.channel.name,
+      profileImageUrl: data.channel.profile_image_url,
+      subscriberCount: data.channel.subscriber_count,
+    },
     viewCount: data.view_count,
     publishedAt: data.published_at,
     description: data.description,
+    channel: data.channel,
   })
 
   getVideoData = async () => {
@@ -56,8 +69,7 @@ class VideoItemDetails extends Component {
       const response = await fetch(apiUrl, options)
       if (response.ok) {
         const fetchedData = await response.json()
-        const updatedData = this.getFormattedData(fetchedData)
-
+        const updatedData = this.getFormattedData(fetchedData.video_details)
         this.setState({
           videoData: updatedData,
           apiStatus: apiStatusConstants.success,
@@ -125,48 +137,69 @@ class VideoItemDetails extends Component {
     <CartContext.Consumer>
       {value => {
         const {videoData, likeActive, dislikeActive, saveActive} = this.state
-        const {title, videoUrl, viewCount, publishedAt} = videoData
+        const {title, videoUrl, viewCount, publishedAt, channel} = videoData
+        console.log('videoData:', videoData)
         const {addVideo} = value
         const handleSave = () => {
           addVideo({...videoData})
+          console.log('save button called')
         }
         return (
           <div>
-            <ReactPlayer
-              url={videoUrl}
-              className="video-player"
-              width="50%"
-              height="100%"
-              controls
-            />
-            <div className="video-details-container">
-              <h2 className="video-title">{title}</h2>
-              <p className="view-count">Views: {viewCount}</p>
-              <p className="published-at">Published at: {publishedAt}</p>
-              <div className="buttons-container">
-                <button
-                  type="button"
-                  className={`like-button ${likeActive ? 'active' : ''}`}
-                  onClick={this.handleLike}
-                >
-                  Like
-                </button>
-                <button
-                  type="button"
-                  className={`dislike-button ${dislikeActive ? 'active' : ''}`}
-                  onClick={this.handleDislike}
-                >
-                  Dislike
-                </button>
-                <button
-                  type="button"
-                  className={`save-button ${saveActive ? 'active' : ''}`}
-                  onClick={saveActive ? this.handleSaved : this.handleSave}
-                >
-                  {saveActive ? 'Saved' : 'Save'}
-                </button>
+            <NavBar />
+            <SideBar />
+            <div className="detailcont">
+              <ReactPlayer
+                url={videoUrl}
+                className="video-player"
+                width="96%"
+                height="100%"
+                controls
+              />
+              <div className="video-details-container">
+                <div>
+                  <p>{channel.subscriberCount}</p>
+                  <p>{channel.name}</p>
+                </div>
+                <h2 className="video-title">{title}</h2>
+
+                <div className="biggboxx">
+                  <div className="dateboxx">
+                    <p className="view-count">{viewCount}</p>
+                    <p className="published-at">
+                      {formatDistanceToNow(new Date(publishedAt))}
+                    </p>
+                  </div>
+                  <div className="buttons-container">
+                    <button
+                      type="button"
+                      className={`like-button ${likeActive ? 'active' : ''}`}
+                      onClick={this.handleLike}
+                    >
+                      <AiOutlineLike />
+                    </button>
+                    <button
+                      type="button"
+                      className={`dislike-button ${
+                        dislikeActive ? 'active' : ''
+                      }`}
+                      onClick={this.handleDislike}
+                    >
+                      <AiOutlineDislike />
+                    </button>
+                    <button
+                      type="button"
+                      className={`save-button ${saveActive ? 'active' : ''}`}
+                      onClick={saveActive ? this.handleSaved : this.handleSave}
+                    >
+                      <HiOutlineSave />
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
+
+            <hr />
           </div>
         )
       }}
