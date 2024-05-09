@@ -16,7 +16,6 @@ class App extends Component {
   state = {
     videoList: [],
   }
-
   addVideo = video => {
     const {videoList} = this.state
     const videoObject = videoList.find(
@@ -29,14 +28,12 @@ class App extends Component {
           if (videoObject.id === eachVideoItem.id) {
             return {...eachVideoItem}
           }
-
           return eachVideoItem
         }),
       }))
     } else {
-      const updatedVideoList = [...videoList, video]
-
-      this.setState({cartList: updatedVideoList})
+      const updatedVideoList = [...videoList, video] // Change videoList to cartList
+      this.setState({videoList: updatedVideoList})
     }
   }
 
